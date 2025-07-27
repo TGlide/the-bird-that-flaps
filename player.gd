@@ -25,7 +25,7 @@ func _physics_process(delta):
 		rotation -= deg_to_rad(5000 * delta)
 	else:
 		rotation += deg_to_rad(400 * delta)
-	rotation = clamp(rotation, -0.75, 1.5)
+	rotation = clamp(rotation, deg_to_rad(-45), deg_to_rad(90))
 
 
 	move_and_slide()
