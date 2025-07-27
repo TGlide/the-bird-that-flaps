@@ -1,0 +1,192 @@
+[gd_scene load_steps=7 format=4 uid="uid://clvxefl233b8k"]
+
+[ext_resource type="Texture2D" uid="uid://bvmh8qidkbgx5" path="res://assets/Background/Background2.png" id="1_t4gw0"]
+[ext_resource type="Texture2D" uid="uid://xwsjfehgaju4" path="res://assets/Tiles/Style 1/TileStyle1.png" id="2_e8j8q"]
+[ext_resource type="Texture2D" uid="uid://bdum7yap4kdp6" path="res://assets/Tiles/Style 1/SimpleStyle1.png" id="3_iq1of"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_36ycx"]
+texture = ExtResource("2_e8j8q")
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+20:1/0 = 0
+21:1/0 = 0
+22:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+20:2/0 = 0
+21:2/0 = 0
+22:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+20:3/0 = 0
+21:3/0 = 0
+22:3/0 = 0
+23:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+22:4/0 = 0
+23:4/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_plmvg"]
+texture = ExtResource("3_iq1of")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7sudn"]
+sources/0 = SubResource("TileSetAtlasSource_36ycx")
+sources/1 = SubResource("TileSetAtlasSource_plmvg")
+
+[node name="BG" type="ParallaxBackground"]
+
+[node name="back" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 1)
+motion_mirroring = Vector2(256, 0)
+
+[node name="TextureRect" type="TextureRect" parent="back"]
+offset_right = 529.0
+offset_bottom = 256.0
+texture = ExtResource("1_t4gw0")
+stretch_mode = 1
+
+[node name="floor" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(256, 0)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="floor"]
+tile_map_data = PackedByteArray("AAAAAA8AAQAAAAUAAAABAA8AAQAAAAUAAAACAA8AAQAAAAUAAAADAA8AAQAAAAUAAAAEAA8AAQAAAAUAAAAFAA8AAQAAAAUAAAAGAA8AAQAAAAUAAAAHAA8AAQAAAAUAAAAIAA8AAQAAAAUAAAAJAA8AAQAAAAUAAAAKAA8AAQAAAAUAAAALAA8AAQAAAAUAAAAMAA8AAQAAAAUAAAANAA8AAQAAAAUAAAAOAA8AAQAAAAUAAAAPAA8AAQAAAAUAAAAQAA8AAQAAAAUAAAARAA8AAQAAAAUAAAASAA8AAQAAAAUAAAATAA8AAQAAAAUAAAAUAA8AAQAAAAUAAAAVAA8AAQAAAAUAAAAWAA8AAQAAAAUAAAAXAA8AAQAAAAUAAAAYAA8AAQAAAAUAAAAZAA8AAQAAAAUAAAAaAA8AAQAAAAUAAAAbAA8AAQAAAAUAAAAcAA8AAQAAAAUAAAAdAA8AAQAAAAUAAAAeAA8AAQAAAAUAAAAfAA8AAQAAAAUAAAAgAA8AAQAAAAUAAAAhAA8AAQAAAAUAAAAiAA8AAQAAAAUAAAAjAA8AAQAAAAUAAAAkAA8AAQAAAAUAAAAlAA8AAQAAAAUAAAAmAA8AAQAAAAUAAAAnAA8AAQAAAAUAAAAoAA8AAQAAAAUAAAApAA8AAQAAAAUAAAAqAA8AAQAAAAUAAAArAA8AAQAAAAUAAAAsAA8AAQAAAAUAAAAtAA8AAQAAAAUAAAAuAA8AAQAAAAUAAAAvAA8AAQAAAAUAAAAwAA8AAQAAAAUAAAA=")
+tile_set = SubResource("TileSet_7sudn")

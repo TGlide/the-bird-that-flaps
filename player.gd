@@ -1,11 +1,13 @@
 extends CharacterBody2D
+class_name Player
 
-const GRAVITY = Vector2(0, 1200)
-const JUMP_IMPULSE = Vector2(0, -450)
+const GRAVITY = Vector2(0, 1000)
+const JUMP_IMPULSE = Vector2(0, -350)
 
 @onready var animation_sprite: AnimatedSprite2D = $Sprite
 @onready var audio_fly: AudioStreamPlayer2D = $AudioFly
 @onready var audio_hit: AudioStreamPlayer2D = $AudioHit
+@onready var camera: Camera2D = $Camera2D
 
 var hit = false
 
@@ -33,3 +35,6 @@ func _physics_process(delta):
 	if get_slide_collision_count() > 0 and !hit:
 		hit = true
 		audio_hit.play()
+
+
+
