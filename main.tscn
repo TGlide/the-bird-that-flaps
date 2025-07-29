@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1uughrmp40y1"]
+[gd_scene load_steps=8 format=3 uid="uid://c1uughrmp40y1"]
 
 [ext_resource type="Script" uid="uid://bxtrbg3v1ksxe" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cl5n4l3oqo1ca" path="res://player.tscn" id="2_0xm2m"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dy8yijg3mnchy" path="res://bg.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d13i7c3emkq5h" path="res://floor.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b8wbw8opb7dde" path="res://global.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://cc31d0ib0wkfb" path="res://hud.tscn" id="7_272bh"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_h2yge")
@@ -22,5 +23,7 @@ position = Vector2(104, 137)
 anchor_mode = 0
 
 [node name="Global" parent="." instance=ExtResource("5_lquwl")]
+
+[node name="HUD" parent="." instance=ExtResource("7_272bh")]
 
 [connection signal="hit" from="Player" to="Global" method="_on_player_hit"]

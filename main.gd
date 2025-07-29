@@ -13,7 +13,7 @@ func _process(delta):
 	# Reload scene when pressing R
 	if Input.is_action_just_pressed("reload"):
 		get_tree().reload_current_scene()
-		Global.state = Global.States.IDLE
+		Global.reset()
 		return
 
 	if Input.is_action_just_pressed("fly") and Global.state == Global.States.IDLE:

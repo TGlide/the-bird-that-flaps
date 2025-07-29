@@ -36,3 +36,9 @@ func _process(_delta: float) -> void:
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
 	pass # Replace with function body.
+
+
+func _on_score_area_body_entered(body: Node2D) -> void:
+	if body is Player:
+		Global.points += 1
+	pass # Replace with function body.

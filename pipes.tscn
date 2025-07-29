@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://hr1l3ilyeks8"]
+[gd_scene load_steps=7 format=4 uid="uid://hr1l3ilyeks8"]
 
 [ext_resource type="Script" uid="uid://qowrtfgyop7j" path="res://pipes.gd" id="1_og227"]
 [ext_resource type="Texture2D" uid="uid://eyvuya6ki3cd" path="res://assets/Tiles/Style 1/PipeStyle1.png" id="1_r1kwc"]
@@ -92,6 +92,9 @@ sources/0 = SubResource("TileSetAtlasSource_og227")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nq3k0"]
 size = Vector2(32, 256)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_og227"]
+size = Vector2(15.75, 512)
+
 [node name="Pipes" type="Node2D" groups=["pipes"]]
 script = ExtResource("1_og227")
 
@@ -122,4 +125,12 @@ shape = SubResource("RectangleShape2D_nq3k0")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(30, 0)
 
+[node name="ScoreArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
+position = Vector2(8.125, 0)
+shape = SubResource("RectangleShape2D_og227")
+debug_color = Color(0.843137, 0.337255, 0.392157, 0.662745)
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]
