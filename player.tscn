@@ -36,7 +36,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sweqy")
 }],
-"loop": false,
+"loop": true,
 "name": &"fly",
 "speed": 8.0
 }]
