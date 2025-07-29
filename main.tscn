@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1uughrmp40y1"]
+[gd_scene load_steps=7 format=3 uid="uid://c1uughrmp40y1"]
 
 [ext_resource type="Script" uid="uid://bxtrbg3v1ksxe" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cl5n4l3oqo1ca" path="res://player.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://hr1l3ilyeks8" path="res://pipes.tscn" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dy8yijg3mnchy" path="res://bg.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d13i7c3emkq5h" path="res://floor.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b8wbw8opb7dde" path="res://global.tscn" id="5_lquwl"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_h2yge")
+pipe_scene = ExtResource("2_7mycd")
 
 [node name="BG" parent="." instance=ExtResource("2_h2yge")]
 

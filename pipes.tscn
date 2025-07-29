@@ -92,7 +92,7 @@ sources/0 = SubResource("TileSetAtlasSource_og227")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nq3k0"]
 size = Vector2(32, 256)
 
-[node name="Pipes" type="Node2D"]
+[node name="Pipes" type="Node2D" groups=["pipes"]]
 script = ExtResource("1_og227")
 
 [node name="PipeUp" type="Area2D" parent="."]
@@ -118,3 +118,8 @@ tile_set = SubResource("TileSet_l4tgv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PipeDown"]
 position = Vector2(0, -128)
 shape = SubResource("RectangleShape2D_nq3k0")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(30, 0)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

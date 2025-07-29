@@ -36,6 +36,5 @@ func _physics_process(delta):
 
 	# check collisions
 	if get_slide_collision_count() > 0 and Global.state == Global.States.FLY:
-		print(Global.state == Global.States.FLY)
 		emit_signal("hit")
 		audio_hit.play()
