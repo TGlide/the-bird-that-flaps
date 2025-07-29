@@ -14,6 +14,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("reload"):
 		get_tree().reload_current_scene()
 		Global.state = Global.States.IDLE
+		return
 
 	if Input.is_action_just_pressed("fly") and Global.state == Global.States.IDLE:
 		Global.state = Global.States.FLY
@@ -28,7 +29,7 @@ func _process(delta):
 	var pipes: Array[Node] = get_tree().get_nodes_in_group("pipes") 
 	if pipes.size() < PIPE_COUNT:
 		var pipe = pipe_scene.instantiate()
-		var last_pipe = pipes.back()
+		var last_pipe = pipes.get(pipes.size() - 1)
 		if last_pipe:
 			pipe.position.x = last_pipe.position.x + PIPE_SPACING
 		else:

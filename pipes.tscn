@@ -95,7 +95,7 @@ size = Vector2(32, 256)
 [node name="Pipes" type="Node2D" groups=["pipes"]]
 script = ExtResource("1_og227")
 
-[node name="PipeUp" type="Area2D" parent="."]
+[node name="PipeUp" type="StaticBody2D" parent="."]
 metadata/_edit_group_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="PipeUp"]
@@ -106,7 +106,7 @@ tile_set = SubResource("TileSet_l4tgv")
 position = Vector2(0, -128)
 shape = SubResource("RectangleShape2D_nq3k0")
 
-[node name="PipeDown" type="Area2D" parent="."]
+[node name="PipeDown" type="StaticBody2D" parent="."]
 rotation = 3.14159
 scale = Vector2(-1, 1)
 metadata/_edit_group_ = true

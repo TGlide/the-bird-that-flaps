@@ -20,7 +20,7 @@ func _physics_process(delta):
 		velocity.y = JUMP_IMPULSE.y 
 		audio_fly.play()
 
-	if Global.state != Global.States.FLY:
+	if Global.state == Global.States.IDLE:
 		return
 
 	velocity.y += GRAVITY.y * delta
@@ -38,3 +38,5 @@ func _physics_process(delta):
 	if get_slide_collision_count() > 0 and Global.state == Global.States.FLY:
 		emit_signal("hit")
 		audio_hit.play()
+		if velocity.y < 0:
+			velocity.y = 0
