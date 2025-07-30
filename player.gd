@@ -4,7 +4,7 @@ class_name Player
 signal hit
 
 const GRAVITY = Vector2(0, 750)
-const JUMP_IMPULSE = Vector2(0, -245)
+const JUMP_IMPULSE = Vector2(0, -235)
 
 @onready var animation_sprite: AnimatedSprite2D = $Sprite
 @onready var audio_fly: AudioStreamPlayer2D = $AudioFly
