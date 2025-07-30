@@ -1,9 +1,12 @@
 extends Node2D
 class_name Pipes
 
-@onready var pipe_up: StaticBody2D = $PipeUp
+signal hit
+signal score
+
+@onready var pipe_up: Area2D = $PipeUp
 @onready var pipe_up_col_shape: CollisionShape2D = $PipeUp/CollisionShape2D
-@onready var pipe_down: StaticBody2D = $PipeDown
+@onready var pipe_down: Area2D = $PipeDown
 @onready var pipe_down_col_shape: CollisionShape2D = $PipeDown/CollisionShape2D
 
 const MIN_GAP: int = 80
@@ -35,10 +38,13 @@ func _process(_delta: float) -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
-	pass # Replace with function body.
 
 
 func _on_score_area_body_entered(body: Node2D) -> void:
 	if body is Player:
-		Global.points += 1
-	pass # Replace with function body.
+		score.emit()
+
+
+func _on_pipe_body_entered(body: Node2D) -> void:
+	if body is Player:
+		hit.emit()

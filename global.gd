@@ -11,6 +11,3 @@ func reset() -> void:
 func _ready() -> void:
 	reset()
 
-func _on_player_hit() -> void:
-	Global.state = States.DEAD
-

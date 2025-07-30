@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cl5n4l3oqo1ca"]
+[gd_scene load_steps=10 format=3 uid="uid://cl5n4l3oqo1ca"]
 
 [ext_resource type="Texture2D" uid="uid://jntcom0xouny" path="res://assets/Player/StyleBird1/Bird1-2.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://biei31qyf4dni" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="AudioStream" uid="uid://dsqlpfrhfrqwb" path="res://assets/SFX/wing.ogg" id="3_i3pqv"]
-[ext_resource type="AudioStream" uid="uid://cr6n284as2axe" path="res://assets/SFX/hit.ogg" id="4_hqtel"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("1_4flbx")
@@ -62,6 +61,3 @@ shape = SubResource("CapsuleShape2D_onrkg")
 
 [node name="AudioFly" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_i3pqv")
-
-[node name="AudioHit" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_hqtel")

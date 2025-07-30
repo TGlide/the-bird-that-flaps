@@ -1,6 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://cc31d0ib0wkfb"]
+[gd_scene load_steps=7 format=3 uid="uid://cc31d0ib0wkfb"]
 
 [ext_resource type="Script" uid="uid://bpyujpnjkn677" path="res://hud.gd" id="1_37p78"]
+
+[sub_resource type="Animation" id="Animation_37p78"]
+resource_name = "flash"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flash:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_64ctp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flash:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8sq4i"]
+_data = {
+&"RESET": SubResource("Animation_64ctp"),
+&"flash": SubResource("Animation_37p78")
+}
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_37p78"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n2snw"]
 outline_size = 8
@@ -8,6 +47,22 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_37p78")
+
+[node name="FlashPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8sq4i")
+}
+
+[node name="Flash" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_37p78")
 
 [node name="Score" type="Label" parent="."]
 anchors_preset = 5

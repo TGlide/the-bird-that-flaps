@@ -4,6 +4,10 @@ extends Node
 
 @onready var camera: Camera2D = $Camera
 @onready var player: Player = $Player
+@onready var hud: HUD = $HUD
+@onready var audio_hit: AudioStreamPlayer = $AudioHit
+@onready var audio_die: AudioStreamPlayer = $AudioDie
+@onready var audio_score: AudioStreamPlayer = $AudioScore
 
 const SPEED = 75
 const PIPE_COUNT = 10
@@ -33,6 +37,22 @@ func _process(delta):
 		if last_pipe:
 			pipe.position.x = last_pipe.position.x + PIPE_SPACING
 		else:
-			pipe.position.x = 400
+			pipe.position.x = get_viewport().get_visible_rect().size.x + 20
 			
+		pipe.hit.connect(_on_hit)
+		pipe.score.connect(_on_score)
 		add_child(pipe)
+
+
+func _on_hit() -> void:
+	Global.state = Global.States.DEAD
+	audio_hit.play()
+	audio_die.play()
+	hud.flash()
+	if player.velocity.y < 0:
+		player.velocity.y = 0
+
+func _on_score() -> void:
+	print("Score: ", Global.points)
+	Global.points += 1
+	audio_score.play()

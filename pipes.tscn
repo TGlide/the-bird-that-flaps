@@ -98,7 +98,7 @@ size = Vector2(15.75, 512)
 [node name="Pipes" type="Node2D" groups=["pipes"]]
 script = ExtResource("1_og227")
 
-[node name="PipeUp" type="StaticBody2D" parent="."]
+[node name="PipeUp" type="Area2D" parent="."]
 metadata/_edit_group_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="PipeUp"]
@@ -109,9 +109,8 @@ tile_set = SubResource("TileSet_l4tgv")
 position = Vector2(0, -128)
 shape = SubResource("RectangleShape2D_nq3k0")
 
-[node name="PipeDown" type="StaticBody2D" parent="."]
-rotation = 3.14159
-scale = Vector2(-1, 1)
+[node name="PipeDown" type="Area2D" parent="."]
+scale = Vector2(1, -1)
 metadata/_edit_group_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="PipeDown"]
@@ -132,5 +131,7 @@ position = Vector2(8.125, 0)
 shape = SubResource("RectangleShape2D_og227")
 debug_color = Color(0.843137, 0.337255, 0.392157, 0.662745)
 
+[connection signal="body_entered" from="PipeUp" to="." method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="PipeDown" to="." method="_on_pipe_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]

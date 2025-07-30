@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1uughrmp40y1"]
+[gd_scene load_steps=11 format=3 uid="uid://c1uughrmp40y1"]
 
 [ext_resource type="Script" uid="uid://bxtrbg3v1ksxe" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cl5n4l3oqo1ca" path="res://player.tscn" id="2_0xm2m"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://d13i7c3emkq5h" path="res://floor.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b8wbw8opb7dde" path="res://global.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cc31d0ib0wkfb" path="res://hud.tscn" id="7_272bh"]
+[ext_resource type="AudioStream" uid="uid://cr6n284as2axe" path="res://assets/SFX/hit.ogg" id="8_5vw27"]
+[ext_resource type="AudioStream" uid="uid://cto0cqvboyqer" path="res://assets/SFX/die.ogg" id="9_4c57u"]
+[ext_resource type="AudioStream" uid="uid://bfxr5aoqr333y" path="res://assets/SFX/point.ogg" id="9_kek77"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_h2yge")
@@ -26,4 +29,15 @@ anchor_mode = 0
 
 [node name="HUD" parent="." instance=ExtResource("7_272bh")]
 
-[connection signal="hit" from="Player" to="Global" method="_on_player_hit"]
+[node name="AudioHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5vw27")
+mix_target = 1
+
+[node name="AudioDie" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_4c57u")
+mix_target = 1
+
+[node name="AudioScore" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_kek77")
+
+[connection signal="hit" from="Player" to="." method="_on_hit"]
