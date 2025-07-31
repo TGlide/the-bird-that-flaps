@@ -2,13 +2,13 @@
 
 importer="aseprite_wizard.plugin.static-texture"
 type="PortableCompressedTexture2D"
-uid="uid://b7r3fxpxpal88"
-path="res://.godot/imported/score.aseprite-8f80fa3ffb5708bae5384614ea36758b.res"
+uid="uid://bbflx7lt6fwuk"
+path="res://.godot/imported/play.aseprite-1f1af6e4a91c2ad6a6ca21d14cf5b45a.res"
 
 [deps]
 
-source_file="res://assets/Buttons/score.aseprite"
-dest_files=["res://.godot/imported/score.aseprite-8f80fa3ffb5708bae5384614ea36758b.res"]
+source_file="res://assets/Buttons/play.aseprite"
+dest_files=["res://.godot/imported/play.aseprite-1f1af6e4a91c2ad6a6ca21d14cf5b45a.res"]
 
 [params]
 

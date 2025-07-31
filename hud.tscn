@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cc31d0ib0wkfb"]
+[gd_scene load_steps=19 format=3 uid="uid://cc31d0ib0wkfb"]
 
 [ext_resource type="Script" uid="uid://bpyujpnjkn677" path="res://hud.gd" id="1_37p78"]
-[ext_resource type="Texture2D" uid="uid://dws5yqiinpnjv" path="res://assets/Buttons/start-normal.png" id="2_8sq4i"]
-[ext_resource type="Texture2D" uid="uid://c3jx8vshuer4y" path="res://assets/Buttons/start-pressed.png" id="3_640wx"]
-[ext_resource type="Texture2D" uid="uid://balekuip5qbl3" path="res://assets/Buttons/score-normal.png" id="4_a2258"]
-[ext_resource type="Texture2D" uid="uid://dp4qwgtgy7sku" path="res://assets/Buttons/score-pressed.png" id="5_1xsix"]
+[ext_resource type="Texture2D" uid="uid://b7r3fxpxpal88" path="res://assets/Buttons/score.aseprite" id="3_8sq4i"]
+[ext_resource type="Texture2D" uid="uid://00jshi3iyym4" path="res://assets/Buttons/start.aseprite" id="4_1xsix"]
+[ext_resource type="Texture2D" uid="uid://chv3e0ay8gqro" path="res://assets/Buttons/pause.aseprite" id="4_640wx"]
+[ext_resource type="Texture2D" uid="uid://bbflx7lt6fwuk" path="res://assets/Buttons/play.aseprite" id="5_a2258"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_a2258"]
 
@@ -48,6 +48,38 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_n2snw"]
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rftc2"]
+atlas = ExtResource("4_1xsix")
+region = Rect2(0, 0, 36, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xsix"]
+atlas = ExtResource("4_1xsix")
+region = Rect2(36, 0, 36, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_640wx"]
+atlas = ExtResource("3_8sq4i")
+region = Rect2(0, 0, 36, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2258"]
+atlas = ExtResource("3_8sq4i")
+region = Rect2(36, 0, 36, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61f8s"]
+atlas = ExtResource("4_640wx")
+region = Rect2(0, 0, 11, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g10ll"]
+atlas = ExtResource("4_640wx")
+region = Rect2(11, 0, 11, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpiub"]
+atlas = ExtResource("5_a2258")
+region = Rect2(0, 0, 11, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amv7k"]
+atlas = ExtResource("5_a2258")
+region = Rect2(11, 0, 11, 12)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_37p78")
@@ -111,10 +143,26 @@ alignment = 1
 
 [node name="StartButton" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("2_8sq4i")
-texture_pressed = ExtResource("3_640wx")
+texture_normal = SubResource("AtlasTexture_rftc2")
+texture_pressed = SubResource("AtlasTexture_1xsix")
 
 [node name="ScoreButton" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_a2258")
-texture_pressed = ExtResource("5_1xsix")
+texture_normal = SubResource("AtlasTexture_640wx")
+texture_pressed = SubResource("AtlasTexture_a2258")
+
+[node name="PauseButton" type="TextureButton" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 19.0
+offset_bottom = 20.0
+texture_normal = SubResource("AtlasTexture_61f8s")
+texture_pressed = SubResource("AtlasTexture_g10ll")
+
+[node name="PlayButton" type="TextureButton" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 19.0
+offset_bottom = 20.0
+texture_normal = SubResource("AtlasTexture_gpiub")
+texture_pressed = SubResource("AtlasTexture_amv7k")
