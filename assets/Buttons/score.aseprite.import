@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b7r3fxpxpal88"
+path="res://.godot/imported/score.aseprite-8f80fa3ffb5708bae5384614ea36758b.res"
+
+[deps]
+
+source_file="res://assets/Buttons/score.aseprite"
+dest_files=["res://.godot/imported/score.aseprite-8f80fa3ffb5708bae5384614ea36758b.res"]
+
+[params]
+

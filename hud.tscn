@@ -1,6 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://cc31d0ib0wkfb"]
+[gd_scene load_steps=11 format=3 uid="uid://cc31d0ib0wkfb"]
 
 [ext_resource type="Script" uid="uid://bpyujpnjkn677" path="res://hud.gd" id="1_37p78"]
+[ext_resource type="Texture2D" uid="uid://dws5yqiinpnjv" path="res://assets/Buttons/start-normal.png" id="2_8sq4i"]
+[ext_resource type="Texture2D" uid="uid://c3jx8vshuer4y" path="res://assets/Buttons/start-pressed.png" id="3_640wx"]
+[ext_resource type="Texture2D" uid="uid://balekuip5qbl3" path="res://assets/Buttons/score-normal.png" id="4_a2258"]
+[ext_resource type="Texture2D" uid="uid://dp4qwgtgy7sku" path="res://assets/Buttons/score-pressed.png" id="5_1xsix"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_a2258"]
+
+[sub_resource type="Animation" id="Animation_64ctp"]
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flash:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0524652),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_37p78"]
 resource_name = "flash"
@@ -18,28 +39,11 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_64ctp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flash:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8sq4i"]
 _data = {
 &"RESET": SubResource("Animation_64ctp"),
 &"flash": SubResource("Animation_37p78")
 }
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_37p78"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n2snw"]
 outline_size = 8
@@ -47,11 +51,6 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_37p78")
-
-[node name="FlashPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_8sq4i")
-}
 
 [node name="Flash" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -62,7 +61,29 @@ offset_right = 1.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("CanvasTexture_37p78")
+texture = SubResource("CanvasTexture_a2258")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/Buttons/start.aseprite",
+"source_uid": 1806909513333230677
+}
+}
+
+[node name="FlashPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8sq4i")
+}
 
 [node name="Score" type="Label" parent="."]
 anchors_preset = 5
@@ -75,3 +96,25 @@ grow_horizontal = 2
 text = "0"
 label_settings = SubResource("LabelSettings_n2snw")
 horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -44.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="StartButton" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_8sq4i")
+texture_pressed = ExtResource("3_640wx")
+
+[node name="ScoreButton" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_a2258")
+texture_pressed = ExtResource("5_1xsix")
