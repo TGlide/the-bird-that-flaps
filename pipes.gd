@@ -15,7 +15,7 @@ const SPACING: int = 100
 
 enum Variants { MOVING}
 var variant_probabilities = {
-	Variants.MOVING: 0.99
+	Variants.MOVING: 0.2
 }
 var variants: Array[Variants] = []
 
