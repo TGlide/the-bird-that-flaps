@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1uughrmp40y1"]
+[gd_scene load_steps=10 format=3 uid="uid://c1uughrmp40y1"]
 
 [ext_resource type="Script" uid="uid://bxtrbg3v1ksxe" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cl5n4l3oqo1ca" path="res://player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://hr1l3ilyeks8" path="res://pipes.tscn" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dy8yijg3mnchy" path="res://bg.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d13i7c3emkq5h" path="res://floor.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://b8wbw8opb7dde" path="res://global.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cc31d0ib0wkfb" path="res://hud.tscn" id="7_272bh"]
 [ext_resource type="AudioStream" uid="uid://cr6n284as2axe" path="res://assets/SFX/hit.ogg" id="8_5vw27"]
 [ext_resource type="AudioStream" uid="uid://cto0cqvboyqer" path="res://assets/SFX/die.ogg" id="9_4c57u"]
@@ -26,8 +25,6 @@ position = Vector2(104, 137)
 [node name="Camera" type="Camera2D" parent="."]
 anchor_mode = 0
 
-[node name="Global" parent="." instance=ExtResource("5_lquwl")]
-
 [node name="HUD" parent="." instance=ExtResource("7_272bh")]
 
 [node name="AudioHit" type="AudioStreamPlayer" parent="."]
@@ -42,3 +39,4 @@ mix_target = 1
 stream = ExtResource("9_kek77")
 
 [connection signal="hit" from="Player" to="." method="_on_hit"]
+[connection signal="start_button_pressed" from="HUD" to="." method="_on_hud_start_button_pressed"]

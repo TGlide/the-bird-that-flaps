@@ -13,20 +13,21 @@ const SPEED = 75
 const PIPE_COUNT = 10
 const PIPE_SPACING = 100
 
+enum States { IDLE, FLY, DEAD }
+var state = States.IDLE
+var points = 0
+
 func _process(delta):
 	# Reload scene when pressing R
 	if Input.is_action_just_pressed("reload"):
 		get_tree().reload_current_scene()
-		Global.reset()
+		state = States.IDLE
+		update_score(0)
 		return
 
-	if Input.is_action_just_pressed("fly") and Global.state == Global.States.IDLE:
-		Global.state = Global.States.FLY
-
-	if Global.state == Global.States.FLY:
+	if state == States.FLY:
 		player.position.x += SPEED * delta
 		camera.position.x +=  SPEED * delta
-
 
 	# Pipe logic
 	# Get all pipes from group 'pipes'
@@ -45,7 +46,7 @@ func _process(delta):
 
 
 func _on_hit() -> void:
-	Global.state = Global.States.DEAD
+	state = States.DEAD
 	audio_hit.play()
 	audio_die.play()
 	hud.flash()
@@ -53,6 +54,15 @@ func _on_hit() -> void:
 		player.velocity.y = 0
 
 func _on_score() -> void:
-	print("Score: ", Global.points)
-	Global.points += 1
+	points += 1
 	audio_score.play()
+	update_score(points)
+
+func update_score(n: int) -> void:
+	points = n
+	hud.update_score(points)
+
+
+func _on_hud_start_button_pressed() -> void:
+	player.show()
+

@@ -15,9 +15,9 @@ run/main_scene="uid://c1uughrmp40y1"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
+[debug]
 
-Global="*res://global.gd"
+settings/stdout/print_fps=true
 
 [display]
 
@@ -27,6 +27,7 @@ window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
+window/vsync/vsync_mode=0
 window/driver.linuxbsd="default"
 
 [editor_plugins]

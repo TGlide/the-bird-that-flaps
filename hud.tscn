@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://cc31d0ib0wkfb"]
+[gd_scene load_steps=31 format=4 uid="uid://cc31d0ib0wkfb"]
 
 [ext_resource type="Script" uid="uid://bpyujpnjkn677" path="res://hud.gd" id="1_37p78"]
 [ext_resource type="Texture2D" uid="uid://b7r3fxpxpal88" path="res://assets/Buttons/score.aseprite" id="3_8sq4i"]
@@ -8,24 +8,9 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_a2258"]
 
-[sub_resource type="Animation" id="Animation_64ctp"]
-length = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flash:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0524652),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_37p78"]
-resource_name = "flash"
-length = 0.15
+resource_name = "fade-in-out"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -33,21 +18,27 @@ tracks/0/path = NodePath("Flash:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.15),
+"times": PackedFloat32Array(0, 0.240086, 0.483684),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8sq4i"]
 _data = {
-&"RESET": SubResource("Animation_64ctp"),
-&"flash": SubResource("Animation_37p78")
+&"fade-in-out": SubResource("Animation_37p78")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_n2snw"]
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="InputEventKey" id="InputEventKey_a2258"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_1xsix"]
+events = [SubResource("InputEventKey_a2258")]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rftc2"]
 atlas = ExtResource("4_1xsix")
@@ -194,8 +185,42 @@ _data = {
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_37p78")
 
-[node name="Flash" type="TextureRect" parent="."]
+[node name="Fade" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
+z_index = 100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_a2258")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/Buttons/start.aseprite",
+"source_uid": 1806909513333230677
+}
+}
+
+[node name="FadePlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8sq4i")
+}
+
+[node name="Flash" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -254,6 +279,7 @@ alignment = 1
 
 [node name="StartButton" type="TextureButton" parent="Buttons"]
 layout_mode = 2
+shortcut = SubResource("Shortcut_1xsix")
 texture_normal = SubResource("AtlasTexture_rftc2")
 texture_pressed = SubResource("AtlasTexture_1xsix")
 

@@ -55,15 +55,6 @@ func _ready() -> void:
 					
 
 func _process(delta: float) -> void:
-	if Global.state == Global.States.FLY:
-		# enable collision
-		pipe_up_col_shape.set_deferred("disabled", false)
-		pipe_down_col_shape.set_deferred("disabled", false)
-	else:
-		# disable collision
-		pipe_up_col_shape.set_deferred("disabled", true)
-		pipe_down_col_shape.set_deferred("disabled", true)
-
 	if variants.size() == 0: return
 	for variant in variants:
 		match variant:
@@ -91,3 +82,4 @@ func _on_score_area_body_entered(body: Node2D) -> void:
 func _on_pipe_body_entered(body: Node2D) -> void:
 	if body is Player:
 		hit.emit()
+

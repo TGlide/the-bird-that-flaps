@@ -52,6 +52,7 @@ script = ExtResource("1_onrkg")
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_2hs0m")
 animation = &"fly"
+autoplay = "fly"
 frame = 1
 frame_progress = 0.90131
 
