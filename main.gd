@@ -67,7 +67,8 @@ func update_score(n: int) -> void:
 	points = n
 	hud.update_score(points)
 
-func _on_hud_start_button_pressed() -> void:
+func _on_title_screen_start_button_pressed() -> void:
 	player.show()
+	hud.score.show()
 	state = States.IDLE
 

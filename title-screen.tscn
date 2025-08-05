@@ -1,0 +1,284 @@
+[gd_scene load_steps=25 format=4 uid="uid://cixpj7x70hwtl"]
+
+[ext_resource type="Script" uid="uid://hvs61bsxmna0" path="res://title_screen.gd" id="1_sj008"]
+[ext_resource type="Texture2D" uid="uid://00jshi3iyym4" path="res://assets/Buttons/start.aseprite" id="2_o85xu"]
+[ext_resource type="Texture2D" uid="uid://b7r3fxpxpal88" path="res://assets/Buttons/score.aseprite" id="3_bvxly"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_a2258"]
+
+[sub_resource type="Animation" id="Animation_g10ll"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_61f8s"]
+resource_name = "fade-and-back"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.273436, 0.445112, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gpiub"]
+_data = {
+&"RESET": SubResource("Animation_g10ll"),
+&"fade-and-back": SubResource("Animation_61f8s")
+}
+
+[sub_resource type="InputEventKey" id="InputEventKey_a2258"]
+device = -1
+pressed = true
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_1xsix"]
+events = [SubResource("InputEventKey_a2258")]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rftc2"]
+atlas = ExtResource("2_o85xu")
+region = Rect2(0, 0, 36, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xsix"]
+atlas = ExtResource("2_o85xu")
+region = Rect2(36, 0, 36, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_640wx"]
+atlas = ExtResource("3_bvxly")
+region = Rect2(0, 0, 36, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2258"]
+atlas = ExtResource("3_bvxly")
+region = Rect2(36, 0, 36, 12)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_a2258"]
+_data = PackedByteArray("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")
+size_override = Vector2(444, 194)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4q17s"]
+atlas = SubResource("PortableCompressedTexture2D_a2258")
+region = Rect2(0, 97, 222, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fv7p"]
+atlas = SubResource("PortableCompressedTexture2D_a2258")
+region = Rect2(0, 0, 222, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u2vk"]
+atlas = SubResource("PortableCompressedTexture2D_a2258")
+region = Rect2(222, 0, 222, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2d608"]
+atlas = SubResource("PortableCompressedTexture2D_a2258")
+region = Rect2(222, 97, 222, 97)
+filter_clip = true
+
+[sub_resource type="Animation" id="Animation_w71nf"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("AtlasTexture_1fv7p"), SubResource("AtlasTexture_4u2vk"), SubResource("AtlasTexture_4q17s"), SubResource("AtlasTexture_2d608")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.66, 0.99),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(117, 16), Vector2(117, 14.5), Vector2(117, 17.5), Vector2(117, 16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_615i1"]
+_data = {
+&"default": SubResource("Animation_w71nf")
+}
+
+[sub_resource type="Animation" id="Animation_1xsix"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rftc2"]
+resource_name = "fade-in"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_a2258"]
+resource_name = "fade-out"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rftc2"]
+_data = {
+&"RESET": SubResource("Animation_1xsix"),
+&"fade-in": SubResource("Animation_rftc2"),
+&"fade-out": SubResource("Animation_a2258")
+}
+
+[node name="TitleScreen" type="CanvasLayer"]
+script = ExtResource("1_sj008")
+
+[node name="Overlay" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_a2258")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/Buttons/start.aseprite",
+"source_uid": 1806909513333230677
+}
+}
+
+[node name="FadePlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gpiub")
+}
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -44.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="StartButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+shortcut = SubResource("Shortcut_1xsix")
+texture_normal = SubResource("AtlasTexture_rftc2")
+texture_pressed = SubResource("AtlasTexture_1xsix")
+
+[node name="ScoreButton" type="TextureButton" parent="Buttons"]
+visible = false
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_640wx")
+texture_pressed = SubResource("AtlasTexture_a2258")
+
+[node name="Title" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -111.0
+offset_top = 17.2352
+offset_right = 111.0
+offset_bottom = 114.235
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_4q17s")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "TitlePlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/title.aseprite",
+"source_uid": 8028796260000567724
+}
+metadata/_aseprite_wizard_source_file_hash_ = "b85a0a0cdf9926dc3bb16ab3a4959f3d"
+
+[node name="TitlePlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_615i1")
+}
+autoplay = "default"
+
+[node name="TitleFadePlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rftc2")
+}
+
+[connection signal="pressed" from="Buttons/StartButton" to="." method="_on_start_button_pressed"]
