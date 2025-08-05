@@ -1,0 +1,25 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://bedss0jbfp3mr"
+path="res://.godot/imported/number-font.png-0e23ba825a3d52749d5269724633cf08.fontdata"
+
+[deps]
+
+source_file="res://assets/others/number-font.png"
+dest_files=["res://.godot/imported/number-font.png-0e23ba825a3d52749d5269724633cf08.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("\'0\'-\'9\'")
+kerning_pairs=PackedStringArray()
+columns=10
+rows=1
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+ascent=0
+descent=0
+fallbacks=[]
+compress=true
+scaling_mode=2

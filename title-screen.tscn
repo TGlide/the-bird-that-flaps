@@ -178,6 +178,7 @@ _data = {
 }
 
 [node name="TitleScreen" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_sj008")
 
 [node name="Overlay" type="TextureRect" parent="."]
