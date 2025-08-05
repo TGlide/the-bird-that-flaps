@@ -9,6 +9,7 @@ class_name Game
 @onready var audio_hit: AudioStreamPlayer = $AudioHit
 @onready var audio_die: AudioStreamPlayer = $AudioDie
 @onready var audio_score: AudioStreamPlayer = $AudioScore
+@onready var gameover: GameOver = $GameOver
 
 const SPEED = 75
 const PIPE_COUNT = 10
@@ -62,7 +63,9 @@ func _on_hit() -> void:
 	audio_hit.play()
 	audio_die.play()
 	hud.flash()
+	hud.score.hide()
 	player.on_hit()
+	gameover.show_gameover(points)
 
 func _on_score() -> void:
 	points += 1

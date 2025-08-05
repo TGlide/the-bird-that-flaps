@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cwd630whv80xb"
+path="res://.godot/imported/score.aseprite-ad25f5f8a336f039036d4d3f9de83745.res"
+
+[deps]
+
+source_file="res://assets/game-over/score.aseprite"
+dest_files=["res://.godot/imported/score.aseprite-ad25f5f8a336f039036d4d3f9de83745.res"]
+
+[params]
+

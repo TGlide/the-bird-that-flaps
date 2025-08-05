@@ -1,0 +1,160 @@
+[gd_scene load_steps=10 format=3 uid="uid://bkf5prik7ey4q"]
+
+[ext_resource type="Texture2D" uid="uid://bss73cn4itdr8" path="res://assets/others/gameover.png" id="1_y26ei"]
+[ext_resource type="Script" uid="uid://wuapjm3l5mxd" path="res://game_over.gd" id="1_yxx3c"]
+[ext_resource type="Texture2D" uid="uid://b4ccdl0ua13jp" path="res://assets/game-over/box.png" id="3_ccer4"]
+[ext_resource type="Texture2D" uid="uid://dedp16u7aocoh" path="res://assets/game-over/best.png" id="4_ftari"]
+[ext_resource type="Texture2D" uid="uid://dvh4yjnyumym" path="res://assets/game-over/score.png" id="5_28vn7"]
+[ext_resource type="FontFile" uid="uid://bedss0jbfp3mr" path="res://assets/others/number-font.png" id="5_k2vha"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fkf4o"]
+font = ExtResource("5_k2vha")
+font_size = 8
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_28vn7"]
+resource_name = "show"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Box:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.733333, 1.2),
+"transitions": PackedFloat32Array(0.25, 0),
+"update": 0,
+"values": [Vector2(155.5, 265), Vector2(155.5, 91.0001)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GOText:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0666667, 0.3, 0.466667),
+"transitions": PackedFloat32Array(1, 2, 0.5),
+"update": 0,
+"values": [Vector2(161.5, 50), Vector2(161.5, 36), Vector2(161.5, 48)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GOText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fkf4o"]
+_data = {
+&"show": SubResource("Animation_28vn7")
+}
+
+[node name="GameOver" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_yxx3c")
+
+[node name="GOText" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -66.5
+offset_top = -206.0
+offset_right = 66.5
+offset_bottom = -177.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_y26ei")
+expand_mode = 1
+
+[node name="Box" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.341009
+anchor_top = 0.355469
+anchor_right = 0.658991
+anchor_bottom = 0.644531
+offset_left = -0.000106812
+offset_top = 174.0
+offset_right = -0.00012207
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxBg" type="TextureRect" parent="Box"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ccer4")
+metadata/_edit_use_anchors_ = true
+
+[node name="BestContainer" type="VBoxContainer" parent="Box"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 4
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BestTexture" type="TextureRect" parent="Box/BestContainer"]
+layout_mode = 2
+texture = ExtResource("4_ftari")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="BestLabel" type="Label" parent="Box/BestContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_fkf4o")
+horizontal_alignment = 1
+
+[node name="ScoreContainer" type="VBoxContainer" parent="Box"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+theme_override_constants/separation = 4
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreTexture" type="TextureRect" parent="Box/ScoreContainer"]
+layout_mode = 2
+texture = ExtResource("5_28vn7")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreLabel" type="Label" parent="Box/ScoreContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_fkf4o")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Box"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fkf4o")
+}
+
+[connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]
