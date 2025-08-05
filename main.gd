@@ -56,8 +56,7 @@ func _on_hit() -> void:
 	audio_hit.play()
 	audio_die.play()
 	hud.flash()
-	if player.velocity.y < 0:
-		player.velocity.y = 0
+	player.on_hit()
 
 func _on_score() -> void:
 	points += 1

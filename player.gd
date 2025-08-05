@@ -14,13 +14,22 @@ var started = false
 
 func start() -> void:
 	started = true
+	fly()
+
+func fly() -> void:
+	velocity.y = JUMP_IMPULSE.y 
+	audio_fly.play()
+
+func on_hit() -> void:
+	is_dead = true
+	animation_sprite.pause()
+	if velocity.y < 0:
+		velocity.y = 0
 
 func _physics_process(delta):
 	if not started: return
-	if Input.is_action_just_pressed("fly") and not is_dead:
-		velocity.y = JUMP_IMPULSE.y 
-		audio_fly.play()
-
+	if Input.is_action_just_pressed("fly") and !is_dead:
+		fly()
 
 	velocity.y += GRAVITY.y * delta
 
@@ -36,7 +45,5 @@ func _physics_process(delta):
 
 	# check collisions
 	if get_slide_collision_count() > 0 and !is_dead:
-		print("hit collision")
 		hit.emit()
-		is_dead = true
-		animation_sprite.pause()
+		on_hit()
