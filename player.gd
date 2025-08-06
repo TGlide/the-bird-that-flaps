@@ -36,6 +36,12 @@ func on_hit() -> void:
 	if velocity.y < 0:
 		velocity.y = 0
 
+func _input(event: InputEvent) -> void:
+	if not started: return
+	var mouse_click = event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT
+	if mouse_click and !is_dead:
+		fly()
+
 func _physics_process(delta):
 	if not started: return
 	if Input.is_action_just_pressed("fly") and !is_dead:

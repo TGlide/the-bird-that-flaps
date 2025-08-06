@@ -20,15 +20,11 @@ enum States { TITLE, IDLE, FLY, DEAD }
 var state = States.TITLE
 var points = 0
 
-func _on_retry() -> void:
-	await title_screen.show_title()
-	state = States.TITLE
-	get_tree().call_group("pipes", "queue_free")
-	player.reset()
-	hud.reset()
-	update_score(0)
-	camera.position.x = 0
-
+func _input(event: InputEvent) -> void:
+	var mouse_click = event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT
+	if mouse_click and state == States.IDLE:
+		state = States.FLY
+		player.start()
 
 func _process(delta):
 	if Input.is_action_just_pressed("reload"):
@@ -59,6 +55,14 @@ func _process(delta):
 		pipe.score.connect(_on_score)
 		add_child(pipe)
 
+func _on_retry() -> void:
+	await title_screen.show_title()
+	state = States.TITLE
+	get_tree().call_group("pipes", "queue_free")
+	player.reset()
+	hud.reset()
+	update_score(0)
+	camera.position.x = 0
 
 func _on_hit() -> void:
 	if state != States.FLY: return
@@ -76,11 +80,11 @@ func _on_score() -> void:
 	audio_score.play()
 	update_score(points)
 
-func update_score(n: int) -> void:
-	points = n
-	hud.update_score(points)
-
 func _on_title_screen_start_button_pressed() -> void:
 	player.show()
 	hud.score.show()
 	state = States.IDLE
+
+func update_score(n: int) -> void:
+	points = n
+	hud.update_score(points)
