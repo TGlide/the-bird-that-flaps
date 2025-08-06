@@ -1,7 +1,6 @@
 extends Node
 class_name Main
 
-
 @export var pipe_scene: PackedScene
 
 @onready var camera: Camera2D = $Camera
@@ -24,10 +23,10 @@ var points = 0
 func _on_retry() -> void:
 	await title_screen.show_title()
 	state = States.TITLE
+	get_tree().call_group("pipes", "queue_free")
 	player.reset()
 	hud.reset()
 	update_score(0)
-	get_tree().call_group("pipes", "queue_free")
 	camera.position.x = 0
 
 
@@ -62,7 +61,7 @@ func _process(delta):
 
 
 func _on_hit() -> void:
-	if state == States.DEAD: return
+	if state != States.FLY: return
 	state = States.DEAD
 	audio_hit.play()
 	audio_die.play()
@@ -72,6 +71,7 @@ func _on_hit() -> void:
 	gameover.show_gameover(points)
 
 func _on_score() -> void:
+	if state != States.FLY: return
 	points += 1
 	audio_score.play()
 	update_score(points)

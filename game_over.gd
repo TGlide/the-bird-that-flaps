@@ -34,8 +34,11 @@ func show_gameover(final_score: int) -> void:
 	score = final_score
 	best_label.text = str(best)
 
-func _on_animation_animation_finished(_anim_name: String) -> void:
-	retry_animation.play("show")
+func _on_animation_animation_finished(anim_name: String) -> void:
+	if (anim_name != "show"): return
+	# check if visible
+	if !visible: return
+
 	var s = 0
 	var timeout = SCORE_ANIMATION_DURATION / (score)
 	while s < score:
@@ -46,6 +49,8 @@ func _on_animation_animation_finished(_anim_name: String) -> void:
 	if score > best:
 		best = score
 		save_score()
+
+	retry_animation.play("show")
 
 
 signal retry_pressed

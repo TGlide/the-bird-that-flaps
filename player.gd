@@ -22,12 +22,13 @@ func fly() -> void:
 	audio_fly.play()
 
 func reset() -> void:
-	is_dead = false
-	started = false
 	position = initial_position
 	rotation = 0
 	animation_sprite.play("fly")
 	hide()
+
+	is_dead = false
+	started = false
 
 func on_hit() -> void:
 	is_dead = true
