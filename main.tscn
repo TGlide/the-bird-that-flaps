@@ -1,16 +1,16 @@
 [gd_scene load_steps=12 format=3 uid="uid://cgjdmmf8s3yf6"]
 
 [ext_resource type="Script" uid="uid://dq4injavokrey" path="res://main.gd" id="1_h2yge"]
-[ext_resource type="PackedScene" uid="uid://hr1l3ilyeks8" path="res://pipes.tscn" id="2_efxa6"]
-[ext_resource type="PackedScene" uid="uid://dy8yijg3mnchy" path="res://bg.tscn" id="3_4c57u"]
-[ext_resource type="PackedScene" uid="uid://cl5n4l3oqo1ca" path="res://player.tscn" id="4_efxa6"]
-[ext_resource type="PackedScene" uid="uid://d13i7c3emkq5h" path="res://floor.tscn" id="5_dg77c"]
-[ext_resource type="PackedScene" uid="uid://cc31d0ib0wkfb" path="res://hud.tscn" id="6_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://hr1l3ilyeks8" path="res://objects/pipes.tscn" id="2_efxa6"]
+[ext_resource type="PackedScene" uid="uid://dy8yijg3mnchy" path="res://ui/bg.tscn" id="3_4c57u"]
+[ext_resource type="PackedScene" uid="uid://cl5n4l3oqo1ca" path="res://actors/player.tscn" id="4_efxa6"]
+[ext_resource type="PackedScene" uid="uid://d13i7c3emkq5h" path="res://ui/floor.tscn" id="5_dg77c"]
+[ext_resource type="PackedScene" uid="uid://cc31d0ib0wkfb" path="res://ui/hud.tscn" id="6_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://cr6n284as2axe" path="res://assets/SFX/hit.ogg" id="7_w48qg"]
 [ext_resource type="AudioStream" uid="uid://cto0cqvboyqer" path="res://assets/SFX/die.ogg" id="8_vivmo"]
 [ext_resource type="AudioStream" uid="uid://bfxr5aoqr333y" path="res://assets/SFX/point.ogg" id="9_2cqfq"]
-[ext_resource type="PackedScene" uid="uid://cixpj7x70hwtl" path="res://title_screen.tscn" id="10_5mng5"]
-[ext_resource type="PackedScene" uid="uid://bkf5prik7ey4q" path="res://game_over.tscn" id="10_yaehf"]
+[ext_resource type="PackedScene" uid="uid://cixpj7x70hwtl" path="res://ui/title_screen.tscn" id="10_5mng5"]
+[ext_resource type="PackedScene" uid="uid://bkf5prik7ey4q" path="res://ui/game_over.tscn" id="10_yaehf"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_h2yge")

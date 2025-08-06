@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://hr1l3ilyeks8"]
 
-[ext_resource type="Script" uid="uid://qowrtfgyop7j" path="res://pipes.gd" id="1_og227"]
+[ext_resource type="Script" uid="uid://qowrtfgyop7j" path="res://objects/pipes.gd" id="1_og227"]
 [ext_resource type="Texture2D" uid="uid://eyvuya6ki3cd" path="res://assets/Tiles/Style 1/PipeStyle1.png" id="1_r1kwc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_og227"]

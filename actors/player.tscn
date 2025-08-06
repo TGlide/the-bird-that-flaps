@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cl5n4l3oqo1ca"]
 
 [ext_resource type="Texture2D" uid="uid://jntcom0xouny" path="res://assets/Player/StyleBird1/Bird1-2.png" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://biei31qyf4dni" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://biei31qyf4dni" path="res://actors/player.gd" id="1_onrkg"]
 [ext_resource type="AudioStream" uid="uid://dsqlpfrhfrqwb" path="res://assets/SFX/wing.ogg" id="3_i3pqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]

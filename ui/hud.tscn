@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cc31d0ib0wkfb"]
 
-[ext_resource type="Script" uid="uid://bpyujpnjkn677" path="res://hud.gd" id="1_37p78"]
+[ext_resource type="Script" uid="uid://bpyujpnjkn677" path="res://ui/hud.gd" id="1_37p78"]
 [ext_resource type="FontFile" uid="uid://bedss0jbfp3mr" path="res://assets/others/number-font.png" id="2_640wx"]
 [ext_resource type="Texture2D" uid="uid://chv3e0ay8gqro" path="res://assets/Buttons/pause.aseprite" id="4_640wx"]
 [ext_resource type="Texture2D" uid="uid://bbflx7lt6fwuk" path="res://assets/Buttons/play.aseprite" id="5_a2258"]
