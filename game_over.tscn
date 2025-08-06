@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bkf5prik7ey4q"]
+[gd_scene load_steps=17 format=3 uid="uid://bkf5prik7ey4q"]
 
 [ext_resource type="Texture2D" uid="uid://bss73cn4itdr8" path="res://assets/others/gameover.png" id="1_y26ei"]
 [ext_resource type="Script" uid="uid://wuapjm3l5mxd" path="res://game_over.gd" id="1_yxx3c"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dedp16u7aocoh" path="res://assets/game-over/best.png" id="4_ftari"]
 [ext_resource type="Texture2D" uid="uid://dvh4yjnyumym" path="res://assets/game-over/score.png" id="5_28vn7"]
 [ext_resource type="FontFile" uid="uid://bedss0jbfp3mr" path="res://assets/others/number-font.png" id="5_k2vha"]
+[ext_resource type="Shortcut" uid="uid://chhbgghji51j6" path="res://shortcuts/enter.tres" id="7_fkf4o"]
 [ext_resource type="Texture2D" uid="uid://btagb5w81vc3b" path="res://assets/Buttons/retry.aseprite" id="7_k2vha"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fkf4o"]
@@ -212,6 +213,7 @@ anchor_bottom = 0.714844
 offset_right = 1.52588e-05
 grow_horizontal = 2
 grow_vertical = 0
+shortcut = ExtResource("7_fkf4o")
 texture_normal = SubResource("AtlasTexture_fkf4o")
 texture_pressed = SubResource("AtlasTexture_3u7xm")
 metadata/_edit_use_anchors_ = true
@@ -223,3 +225,4 @@ libraries = {
 }
 
 [connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]

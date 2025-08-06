@@ -8,6 +8,7 @@ const JUMP_IMPULSE = Vector2(0, -235)
 
 @onready var animation_sprite: AnimatedSprite2D = $Sprite
 @onready var audio_fly: AudioStreamPlayer2D = $AudioFly
+@onready var initial_position: Vector2 = position
 
 var is_dead = false
 var started = false
@@ -19,6 +20,14 @@ func start() -> void:
 func fly() -> void:
 	velocity.y = JUMP_IMPULSE.y 
 	audio_fly.play()
+
+func reset() -> void:
+	is_dead = false
+	started = false
+	position = initial_position
+	rotation = 0
+	animation_sprite.play("fly")
+	hide()
 
 func on_hit() -> void:
 	is_dead = true

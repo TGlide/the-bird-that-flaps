@@ -46,3 +46,12 @@ func _on_animation_animation_finished(_anim_name: String) -> void:
 	if score > best:
 		best = score
 		save_score()
+
+
+signal retry_pressed
+func _on_retry_pressed() -> void:
+	retry_pressed.emit()
+	await get_tree().create_timer(0.3).timeout
+	hide()
+	retry_animation.play("RESET")
+	

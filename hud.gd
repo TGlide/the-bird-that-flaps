@@ -11,3 +11,7 @@ func flash():
 
 func update_score(n: int) -> void:
 	self.score.text = str(n)
+
+func reset() -> void:
+	score.hide()
+	score.text = "0"
