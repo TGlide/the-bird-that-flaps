@@ -4,6 +4,8 @@ class_name Pipes
 signal hit
 signal score
 
+const powerup_scene: PackedScene = preload("res://objects/power_up.tscn")
+
 @onready var pipe_up: Area2D = $PipeUp
 @onready var pipe_up_col_shape: CollisionShape2D = $PipeUp/CollisionShape2D
 @onready var pipe_down: Area2D = $PipeDown
@@ -18,6 +20,8 @@ var variant_probabilities = {
 	Variants.MOVING: 0.2
 }
 var variants: Array[Variants] = []
+
+const powerup_probability: float = 0.1
 
 # MOVING variant
 const MIN_OFFSET_RANGE: int = 60
@@ -52,7 +56,19 @@ func _ready() -> void:
 		var probability = variant_probabilities[variant]
 		if randf() < probability:
 			variants.append(variant)
-					
+
+	# maybe add a powerup
+	if randf() < powerup_probability:
+		var powerup = powerup_scene.instantiate()
+
+		var p_lb = pipe_up.position.y + 8
+		var p_ub = pipe_down.position.y - 8
+
+		powerup.position = Vector2(0, 0)
+		powerup.position.y = randf_range(p_lb, p_ub)
+		print(powerup.position)
+		add_child(powerup)
+
 
 func _process(delta: float) -> void:
 	if variants.size() == 0: return
@@ -82,4 +98,3 @@ func _on_score_area_body_entered(body: Node2D) -> void:
 func _on_pipe_body_entered(body: Node2D) -> void:
 	if body is Player:
 		hit.emit()
-
