@@ -15,13 +15,13 @@ const MIN_GAP: int = 60
 const MAX_GAP: int = 100
 const SPACING: int = 100
 
-enum Variants { MOVING}
+enum Variants { MOVING }
 var variant_probabilities = {
 	Variants.MOVING: 0.2
 }
 var variants: Array[Variants] = []
 
-const powerup_probability: float = 0.1
+const powerup_probability: float = 0.5
 
 # MOVING variant
 const MIN_OFFSET_RANGE: int = 60

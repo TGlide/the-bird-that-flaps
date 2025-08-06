@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://0semmml6kndj"]
+[gd_scene load_steps=3 format=3 uid="uid://0semmml6kndj"]
 
 [ext_resource type="Texture2D" uid="uid://b3unelqpr8iw5" path="res://assets/Powerups/clock.aseprite" id="1_87ik6"]
+[ext_resource type="Script" uid="uid://d2klx06om7sak" path="res://objects/power_up.gd" id="1_ysopr"]
 
 [node name="PowerUp" type="Area2D"]
+script = ExtResource("1_ysopr")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 8
@@ -21,3 +23,5 @@ stretch_mode = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-2, -7, 2, -7, 2, -6, 2, -5, 4, -4, 5, -3, 6, -1, 6, 3, 5, 5, 4, 6, 2, 7, -2, 7, -4, 6, -5, 5, -6, 3, -6, -1, -5, -3, -4, -4, -2, -5)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,11 @@
+extends Area2D
+class_name PowerUp
+
+var triggered: bool = false
+
+func _on_body_entered(body:Node2D) -> void:
+	if triggered: return
+	if body is Player:
+		GlobalState.slowdown()
+		triggered = true
+		hide()

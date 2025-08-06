@@ -12,7 +12,7 @@ class_name Main
 @onready var gameover: GameOver = $GameOver
 @onready var title_screen: TitleScreen = $TitleScreen
 
-const SPEED = 75
+var SPEED = 75
 const PIPE_COUNT = 10
 const PIPE_SPACING = 100
 
@@ -73,6 +73,7 @@ func _on_hit() -> void:
 	hud.score.hide()
 	player.on_hit()
 	gameover.show_gameover(points)
+	GlobalState._on_slowdown_timer_timeout()
 
 func _on_score() -> void:
 	if state != States.FLY: return
