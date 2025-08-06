@@ -53,11 +53,11 @@ events = [SubResource("InputEventKey_a2258")]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rftc2"]
 atlas = ExtResource("2_o85xu")
-region = Rect2(0, 0, 36, 12)
+region = Rect2(0, 0, 35, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1xsix"]
 atlas = ExtResource("2_o85xu")
-region = Rect2(36, 0, 36, 12)
+region = Rect2(35, 0, 35, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_640wx"]
 atlas = ExtResource("3_bvxly")
@@ -191,6 +191,7 @@ offset_right = 1.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("CanvasTexture_a2258")
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {

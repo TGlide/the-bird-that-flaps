@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkf5prik7ey4q"]
+[gd_scene load_steps=16 format=3 uid="uid://bkf5prik7ey4q"]
 
 [ext_resource type="Texture2D" uid="uid://bss73cn4itdr8" path="res://assets/others/gameover.png" id="1_y26ei"]
 [ext_resource type="Script" uid="uid://wuapjm3l5mxd" path="res://game_over.gd" id="1_yxx3c"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dedp16u7aocoh" path="res://assets/game-over/best.png" id="4_ftari"]
 [ext_resource type="Texture2D" uid="uid://dvh4yjnyumym" path="res://assets/game-over/score.png" id="5_28vn7"]
 [ext_resource type="FontFile" uid="uid://bedss0jbfp3mr" path="res://assets/others/number-font.png" id="5_k2vha"]
+[ext_resource type="Texture2D" uid="uid://btagb5w81vc3b" path="res://assets/Buttons/retry.aseprite" id="7_k2vha"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fkf4o"]
 font = ExtResource("5_k2vha")
@@ -58,8 +59,52 @@ _data = {
 &"show": SubResource("Animation_28vn7")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkf4o"]
+atlas = ExtResource("7_k2vha")
+region = Rect2(0, 0, 35, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u7xm"]
+atlas = ExtResource("7_k2vha")
+region = Rect2(35, 0, 35, 12)
+
+[sub_resource type="Animation" id="Animation_k2vha"]
+resource_name = "show"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Retry:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(2, 0),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fkf4o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Retry:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3u7xm"]
+_data = {
+&"RESET": SubResource("Animation_fkf4o"),
+&"show": SubResource("Animation_k2vha")
+}
+
 [node name="GameOver" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_yxx3c")
 
 [node name="GOText" type="TextureRect" parent="."]
@@ -155,6 +200,26 @@ grow_vertical = 2
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_fkf4o")
+}
+
+[node name="Retry" type="TextureButton" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = 0.460526
+anchor_top = 0.667969
+anchor_right = 0.537281
+anchor_bottom = 0.714844
+offset_right = 1.52588e-05
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = SubResource("AtlasTexture_fkf4o")
+texture_pressed = SubResource("AtlasTexture_3u7xm")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="RetryAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3u7xm")
 }
 
 [connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]

@@ -46,7 +46,7 @@ func _process(delta):
 	var pipes: Array[Node] = get_tree().get_nodes_in_group("pipes") 
 	if pipes.size() < PIPE_COUNT:
 		var pipe = pipe_scene.instantiate()
-		var last_pipe = pipes.get(pipes.size() - 1)
+		var last_pipe = pipes.get(pipes.size() - 1) if pipes.size() > 0 else null
 		if last_pipe:
 			pipe.position.x = last_pipe.position.x + PIPE_SPACING
 		else:
