@@ -21,7 +21,7 @@ var variant_probabilities = {
 }
 var variants: Array[Variants] = []
 
-const powerup_probability: float = 0.5
+const powerup_probability: float = 0.3
 
 # MOVING variant
 const MIN_OFFSET_RANGE: int = 60
