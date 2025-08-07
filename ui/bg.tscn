@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dy8yijg3mnchy"]
+[gd_scene load_steps=5 format=3 uid="uid://dy8yijg3mnchy"]
 
+[ext_resource type="Script" uid="uid://b5bpabs5qjtx" path="res://ui/bg.gd" id="1_8pdwo"]
 [ext_resource type="Texture2D" uid="uid://bvmh8qidkbgx5" path="res://assets/Background/Background2.png" id="1_t4gw0"]
+[ext_resource type="Shader" uid="uid://bd6xe7gfur1iw" path="res://shaders/warp.gdshader" id="2_k0heo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8pdwo"]
+shader = ExtResource("2_k0heo")
+shader_parameter/strength = 0.2
+shader_parameter/speed = 0.1
+shader_parameter/screen_resolution = Vector2(1280, 720)
+shader_parameter/effect_mix = 0.8
 
 [node name="BG" type="ParallaxBackground"]
+script = ExtResource("1_8pdwo")
 
 [node name="back" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.1, 1)
@@ -13,3 +23,14 @@ offset_right = 529.0
 offset_bottom = 256.0
 texture = ExtResource("1_t4gw0")
 stretch_mode = 1
+
+[node name="SlowdownShader" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_8pdwo")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
