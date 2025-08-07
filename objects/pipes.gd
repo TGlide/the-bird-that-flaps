@@ -21,7 +21,7 @@ var variant_probabilities = {
 }
 var variants: Array[Variants] = []
 
-const powerup_probability: float = 0.3
+const powerup_probability: float = 0.075
 
 # MOVING variant
 const MIN_OFFSET_RANGE: int = 60
@@ -36,6 +36,8 @@ var initial_y: float = 0.0
 var speed: float = 0.0
 
 func _ready() -> void:
+	GlobalState.num_pipes += 1
+
 	# random y position
 	const lb = SPACING
 	var ub = get_viewport_rect().size.y - SPACING 
@@ -58,7 +60,7 @@ func _ready() -> void:
 			variants.append(variant)
 
 	# maybe add a powerup
-	if randf() < powerup_probability:
+	if randf() < powerup_probability or GlobalState.num_pipes == 3:
 		var powerup = powerup_scene.instantiate()
 
 		var p_lb = pipe_up.position.y + 8
@@ -66,7 +68,6 @@ func _ready() -> void:
 
 		powerup.position = Vector2(0, 0)
 		powerup.position.y = randf_range(p_lb, p_ub)
-		print(powerup.position)
 		add_child(powerup)
 
 

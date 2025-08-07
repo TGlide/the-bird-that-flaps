@@ -6,6 +6,8 @@ signal reset_speed
 @onready var timer: Timer = $SlowdownTimer
 @onready var audio_slowdown: AudioStreamPlayer = $SlowdownAudio
 
+var num_pipes: int = 0
+
 var slowed_down: bool = false
 
 func _on_slowdown() -> void:

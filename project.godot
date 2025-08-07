@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="The Bird that Flaps"
+config/version="1"
 run/main_scene="uid://cgjdmmf8s3yf6"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="uid://d306nmhnxa1il"
+config/icon="uid://ckuwlvmqeg0fa"
 
 [autoload]
 
