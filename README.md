@@ -1,5 +1,3 @@
-# The Bird that Flaps
-
 ![The Bird that Flaps](assets/banner.png)
 
 A classic Flappy Bird clone built with Godot 4.4, featuring pixel art graphics, power-ups, and smooth gameplay mechanics.
