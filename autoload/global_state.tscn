@@ -1,16 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://d33rbqias6k7p"]
+[gd_scene load_steps=4 format=3 uid="uid://d33rbqias6k7p"]
 
 [ext_resource type="Script" uid="uid://c6v6efuw5yrh5" path="res://autoload/global_state.gd" id="1_jcpgf"]
 [ext_resource type="AudioStream" uid="uid://densye2ignho2" path="res://assets/SFX/se_timer_slow.wav" id="2_aj8pl"]
+[ext_resource type="AudioStream" uid="uid://dygr4540qnut3" path="res://assets/SFX/dnb-super.ogg" id="3_g7bq8"]
 
 [node name="GlobalState" type="Node2D"]
 script = ExtResource("1_jcpgf")
 
-[node name="SlowdownTimer" type="Timer" parent="."]
-wait_time = 2.5
+[node name="PowerupTimer" type="Timer" parent="."]
+wait_time = 5.0
 
 [node name="SlowdownAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_aj8pl")
 volume_db = -5.0
 
-[connection signal="timeout" from="SlowdownTimer" to="." method="_on_slowdown_timer_timeout"]
+[node name="SpeedupAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_g7bq8")
+parameters/looping = false
+
+[connection signal="timeout" from="PowerupTimer" to="." method="_on_powerup_timer_timeout"]

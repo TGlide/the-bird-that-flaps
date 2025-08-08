@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://0semmml6kndj"]
+[gd_scene load_steps=3 format=3 uid="uid://sd84hs3wa2vd"]
 
-[ext_resource type="Texture2D" uid="uid://b3unelqpr8iw5" path="res://assets/Powerups/clock.aseprite" id="1_87ik6"]
-[ext_resource type="Script" uid="uid://d2klx06om7sak" path="res://objects/power_up.gd" id="1_ysopr"]
+[ext_resource type="Script" uid="uid://csvielfbig1ol" path="res://objects/speedup.gd" id="1_qi56m"]
+[ext_resource type="Texture2D" uid="uid://03ydv4ihpdml" path="res://assets/Powerups/clock-alt.aseprite" id="2_qi56m"]
 
-[node name="PowerUp" type="Area2D"]
-script = ExtResource("1_ysopr")
+[node name="SpeedUp" type="Area2D"]
+script = ExtResource("1_qi56m")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 8
@@ -18,7 +18,7 @@ offset_right = 6.0
 offset_bottom = 7.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_87ik6")
+texture = ExtResource("2_qi56m")
 stretch_mode = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

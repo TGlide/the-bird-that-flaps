@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy8yijg3mnchy"]
+[gd_scene load_steps=7 format=3 uid="uid://dy8yijg3mnchy"]
 
 [ext_resource type="Script" uid="uid://b5bpabs5qjtx" path="res://ui/bg.gd" id="1_8pdwo"]
 [ext_resource type="Texture2D" uid="uid://bvmh8qidkbgx5" path="res://assets/Background/Background2.png" id="1_t4gw0"]
 [ext_resource type="Shader" uid="uid://bd6xe7gfur1iw" path="res://shaders/warp.gdshader" id="2_k0heo"]
+[ext_resource type="Shader" uid="uid://knrh3mar7qeq" path="res://shaders/red-warp.gdshader" id="4_idd7r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8pdwo"]
 shader = ExtResource("2_k0heo")
@@ -11,6 +12,14 @@ shader_parameter/speed = 0.1
 shader_parameter/screen_resolution = Vector2(1280, 720)
 shader_parameter/effect_mix = 0.8
 shader_parameter/warp_strength = 0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j38au"]
+shader = ExtResource("4_idd7r")
+shader_parameter/strength = 0.29
+shader_parameter/speed = 5.0
+shader_parameter/screen_resolution = Vector2(1280, 720)
+shader_parameter/effect_mix = 0.865
+shader_parameter/warp_strength = 0.012
 
 [node name="BG" type="ParallaxBackground"]
 script = ExtResource("1_8pdwo")
@@ -28,6 +37,17 @@ stretch_mode = 1
 [node name="SlowdownShader" type="ColorRect" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_8pdwo")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="SpeedupShader" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_j38au")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

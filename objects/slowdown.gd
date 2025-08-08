@@ -1,5 +1,5 @@
 extends Area2D
-class_name PowerUp
+class_name SlowDown
 
 var triggered: bool = false
 

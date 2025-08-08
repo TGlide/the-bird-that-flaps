@@ -4,14 +4,15 @@ class_name Pipes
 signal hit
 signal score
 
-const powerup_scene: PackedScene = preload("res://objects/power_up.tscn")
+const slowdown_scene: PackedScene = preload("res://objects/slowdown.tscn")
+const speedup_scene: PackedScene = preload("res://objects/speedup.tscn")
 
 @onready var pipe_up: Area2D = $PipeUp
 @onready var pipe_up_col_shape: CollisionShape2D = $PipeUp/CollisionShape2D
 @onready var pipe_down: Area2D = $PipeDown
 @onready var pipe_down_col_shape: CollisionShape2D = $PipeDown/CollisionShape2D
 
-const MIN_GAP: int = 60
+const MIN_GAP: int = 70
 const MAX_GAP: int = 100
 const SPACING: int = 100
 
@@ -21,7 +22,8 @@ var variant_probabilities = {
 }
 var variants: Array[Variants] = []
 
-const powerup_probability: float = 0.075
+const slowdown_probability: float = 0.075
+const speedup_probability: float = 0.5
 
 # MOVING variant
 const MIN_OFFSET_RANGE: int = 60
@@ -60,15 +62,21 @@ func _ready() -> void:
 			variants.append(variant)
 
 	# maybe add a powerup
-	if randf() < powerup_probability or GlobalState.num_pipes == 3:
-		var powerup = powerup_scene.instantiate()
-
+	if randf() < slowdown_probability or GlobalState.num_pipes == 3:
+		var slowdown = slowdown_scene.instantiate()
 		var p_lb = pipe_up.position.y + 8
 		var p_ub = pipe_down.position.y - 8
+		slowdown.position = Vector2(0, 0)
+		slowdown.position.y = randf_range(p_lb, p_ub)
+		add_child(slowdown)
+	elif randf() < speedup_probability:
+		var speedup = speedup_scene.instantiate()
+		var p_lb = pipe_up.position.y + 8
+		var p_ub = pipe_down.position.y - 8
+		speedup.position = Vector2(0, 0)
+		speedup.position.y = randf_range(p_lb, p_ub)
+		add_child(speedup)
 
-		powerup.position = Vector2(0, 0)
-		powerup.position.y = randf_range(p_lb, p_ub)
-		add_child(powerup)
 
 
 func _process(delta: float) -> void:

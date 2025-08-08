@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://0semmml6kndj"]
+
+[ext_resource type="Script" uid="uid://d2klx06om7sak" path="res://objects/slowdown.gd" id="1_hphlx"]
+[ext_resource type="Texture2D" uid="uid://b3unelqpr8iw5" path="res://assets/Powerups/clock.aseprite" id="2_oh73h"]
+
+[node name="SlowDown" type="Area2D"]
+script = ExtResource("1_hphlx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -7.5
+offset_right = 6.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_oh73h")
+stretch_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-2, -7, 2, -7, 2, -6, 2, -5, 4, -4, 5, -3, 6, -1, 6, 3, 5, 5, 4, 6, 2, 7, -2, 7, -4, 6, -5, 5, -6, 3, -6, -1, -5, -3, -4, -4, -2, -5)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

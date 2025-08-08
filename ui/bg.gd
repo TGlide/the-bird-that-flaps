@@ -1,14 +1,20 @@
 extends ParallaxBackground
 class_name BG
 
-@onready var shader = $SlowdownShader
+@onready var slow_shader = $SlowdownShader
+@onready var speed_shader = $SpeedupShader
 
 func _ready() -> void:
 	GlobalState.slowdown.connect(_on_slowdown)
+	GlobalState.speedup.connect(_on_speedup)
 	GlobalState.reset_speed.connect(_on_reset_speed)
 
 func _on_slowdown() -> void:
-	shader.show()
+	slow_shader.show()
+
+func _on_speedup() -> void:
+	speed_shader.show()
 
 func _on_reset_speed() -> void:
-	shader.hide()
+	slow_shader.hide()
+	speed_shader.hide()

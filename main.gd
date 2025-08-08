@@ -73,7 +73,7 @@ func _on_hit() -> void:
 	hud.score.hide()
 	player.on_hit()
 	gameover.show_gameover(points)
-	GlobalState._on_slowdown_timer_timeout()
+	GlobalState._on_powerup_timer_timeout()
 
 func _on_score() -> void:
 	if state != States.FLY: return
